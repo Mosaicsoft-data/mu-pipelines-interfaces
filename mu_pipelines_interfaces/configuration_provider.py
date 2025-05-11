@@ -8,6 +8,7 @@ from mu_pipelines_interfaces.config_types.global_properties.global_properties im
     GlobalProperties,
 )
 from mu_pipelines_interfaces.config_types.job_config import JobConfigItem
+from mu_pipelines_interfaces.config_types.secrets.secrets_config import SecretsConfig
 
 TSuppFileType = TypeVar("TSuppFileType")
 
@@ -28,4 +29,8 @@ class ConfigurationProvider(ABC):
 
     @property
     def connection_config(self) -> ConnectionProperties:
+        raise NotImplementedError()
+
+    @property
+    def secrets_config(self) -> SecretsConfig:
         raise NotImplementedError()
