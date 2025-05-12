@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, cast
 
 from mu_pipelines_interfaces.config_types.execute_config import ExecuteConfig
 from mu_pipelines_interfaces.configuration_provider import ConfigurationProvider
@@ -15,6 +15,7 @@ class ExecuteModuleInterface(InjectableModuleInterface):
     def __init__(
         self, config: ExecuteConfig, configuration_provider: ConfigurationProvider
     ):
+        super().__init__(cast(dict, config))
         self._config = config
         self._configuration_provider = configuration_provider
 
