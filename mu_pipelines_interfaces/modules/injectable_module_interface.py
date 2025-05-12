@@ -20,7 +20,7 @@ def recursively_inject_secret(input: dict | list, get_secret: GetSecretFunc) -> 
                     input[k] = secret
                 else:
                     recursively_inject_secret(input[k], get_secret)
-            else:
+            elif isinstance(v, list):
                 recursively_inject_secret(input[k], get_secret)
 
 

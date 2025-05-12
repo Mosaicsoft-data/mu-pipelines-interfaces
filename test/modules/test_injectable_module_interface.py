@@ -23,6 +23,7 @@ def test_injectable_base_module() -> None:
             "test_3": {"secret_name": "test_secret_3"},
             "test_4": [{"test_5": {"secret_name": "test_secret_5"}}],
         },
+        "test_3": "not_a_secret",
     }
 
     InjectableModuleInterface(config).inject_secrets({"get_secret": get_secret})
